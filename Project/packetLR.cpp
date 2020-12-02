@@ -114,10 +114,10 @@ int main()
 	//create Potential on plot
 	psi_out.open("potential.dat");
 	for (int j=0;j<i;j++){
-		if (j<=i/2-30 || j >= i/2-30+a){
+		if (j<=i/2-30 || j >= i/2-30+a+1){
 			psi_out<< j << " " << 0 << endl;
 		}
-		if (j>i/2-30 && j<i/2-30+a){
+		if (j>i/2-30 && j<i/2-30+a+1){
 			psi_out<< j << " " << V << endl;
 		}
 	}
@@ -145,8 +145,8 @@ int main()
 				psi11R[j]=psi12R[j];
 			}
 
-			fgp << "plot \"Potential.dat\" using 1:2 with filledcurves below title \"Potential = "<< V <<" Width = "<< a <<"\", \
-			 \"R_time_step_" << t <<".dat\" with filledcurves below title \"Incident Particle = " << E << "\"" << endl;
+			fgp << "plot \"Potential.dat\" using 1:2 with filledcurves title \"Potential = "<< V <<" Width = "<< a <<"\", \
+			 \"R_time_step_" << t <<".dat\" with filledcurves title \"Incident Particle = " << E << "\"" << endl;
 			fgp << "pause 0.05" << endl;
 		}
 
@@ -179,9 +179,9 @@ int main()
 			for (int j=1;j<i;j++){
 				psi11L[j]=psi12L[j];
 			}
-			fgp << "plot \"Potential.dat\" using 1:2 with filledcurves below title \"Potential = "<< V <<" Width = "<< a <<"\", \
-			 \"R_time_step_" << t <<".dat\" with filledcurves below title \"Transmitted Particle T = "<< setprecision(2) << T <<"\", \
-			 \"L_time_step_" << t <<".dat\" with filledcurves below title \"Reflected Particle R = "<< setprecision(2) << R <<"\""<< endl;
+			fgp << "plot \"Potential.dat\" using 1:2 with filledcurves title \"Potential = "<< V <<" Width = "<< a <<"\", \
+			 \"R_time_step_" << t <<".dat\" with filledcurves title \"Transmitted Particle T = "<< setprecision(2) << T <<"\", \
+			 \"L_time_step_" << t <<".dat\" with filledcurves title \"Reflected Particle R = "<< setprecision(2) << R <<"\""<< endl;
 			fgp << "pause 0.05" << endl;
 		}
 
